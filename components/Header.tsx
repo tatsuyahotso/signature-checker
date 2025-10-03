@@ -9,14 +9,12 @@ const Header = () => {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
 
   return (
-    <header className="flex justify-between items-center py-4 px-4 lg:px-0 md:px-8 border-b border-gray-200 dark:border-gray-700 relative">
+    <header className="flex justify-between items-center py-4 px-4 lg:px-0 md:px-8 border-b border-gray-200 relative">
       {/* Logo */}
-      <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
-        Signature
-      </h1>
+      <h1 className="text-2xl font-bold text-gray-900">Signature</h1>
 
       {/* Desktop Nav */}
-      <nav className="hidden md:flex items-center gap-6 text-gray-600 dark:text-gray-300 text-sm font-semibold">
+      <nav className="hidden md:flex items-center gap-6 text-gray-600 text-sm font-semibold">
         <Link href="#">Extension</Link>
         <Link href="#">Exploits</Link>
         <Link href="#">Learn</Link>
@@ -26,41 +24,29 @@ const Header = () => {
         <div className="relative">
           <button
             onClick={() => setIsMoreOpen((prev) => !prev)}
-            className="flex items-center cursor-pointer gap-1 hover:text-gray-900 dark:hover:text-gray-100 focus:outline-none"
+            className="flex items-center cursor-pointer gap-1 hover:text-gray-900 focus:outline-none"
           >
             More <ChevronDown className="w-4 h-4" />
           </button>
 
           {/* Dropdown */}
           <div
-            className={`absolute right-0 mt-2 w-40 bg-white dark:bg-gray-800 shadow-lg rounded-md border border-gray-200 dark:border-gray-700 transition-all duration-200 ${
+            className={`absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-md border border-gray-200 transition-all duration-200 ${
               isMoreOpen
                 ? "opacity-100 scale-100 visible"
                 : "opacity-0 scale-95 invisible"
             }`}
           >
-            <Link
-              href="#"
-              className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
-            >
+            <Link href="#" className="block px-4 py-2 hover:bg-gray-100">
               Blog
             </Link>
-            <Link
-              href="#"
-              className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
-            >
+            <Link href="#" className="block px-4 py-2 hover:bg-gray-100">
               About Us
             </Link>
-            <Link
-              href="#"
-              className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
-            >
+            <Link href="#" className="block px-4 py-2 hover:bg-gray-100">
               Merchandise
             </Link>
-            <Link
-              href="#"
-              className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
-            >
+            <Link href="#" className="block px-4 py-2 hover:bg-gray-100">
               Donate
             </Link>
           </div>
@@ -69,7 +55,7 @@ const Header = () => {
 
       {/* Mobile Button */}
       <button
-        className="md:hidden text-gray-600 dark:text-gray-300"
+        className="md:hidden text-gray-600"
         onClick={() => setIsMobileOpen(true)}
       >
         <Menu className="w-6 h-6" />
@@ -79,7 +65,7 @@ const Header = () => {
       <div
         className={`fixed inset-0 z-40 transition-opacity duration-300 backdrop-blur-sm ${
           isMobileOpen
-            ? "bg-white/30 dark:bg-black/30 opacity-100 visible"
+            ? "bg-white/30 opacity-100 visible"
             : "bg-transparent opacity-0 invisible"
         }`}
         onClick={() => setIsMobileOpen(false)}
@@ -87,21 +73,19 @@ const Header = () => {
 
       {/* Mobile Menu Panel */}
       <div
-        className={`fixed top-0 right-0 h-full w-64 bg-white dark:bg-gray-900 shadow-lg z-50 transform transition-transform duration-300 ${
+        className={`fixed top-0 right-0 h-full w-64 bg-white shadow-lg z-50 transform transition-transform duration-300 ${
           isMobileOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="flex justify-between items-center p-4  border-b border-gray-200 dark:border-gray-700">
-          <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
-            Menu
-          </h2>
+        <div className="flex justify-between items-center p-4 border-b border-gray-200">
+          <h2 className="text-lg font-semibold text-gray-900">Menu</h2>
           <button onClick={() => setIsMobileOpen(false)}>
-            <X className="w-6 h-6 text-gray-600 dark:text-gray-300" />
+            <X className="w-6 h-6 text-gray-600" />
           </button>
         </div>
 
-        <nav className=" text-gray-700 dark:text-gray-300 font-medium">
-          <div className="p-4 flex flex-col  gap-4">
+        <nav className="text-gray-700 font-medium">
+          <div className="p-4 flex flex-col gap-4">
             <Link href="#" onClick={() => setIsMobileOpen(false)}>
               Extension
             </Link>
@@ -115,7 +99,7 @@ const Header = () => {
               FAQ
             </Link>
           </div>
-          <div className="border-t flex-col flex gap-4 border-gray-200 dark:border-gray-700 p-4 ">
+          <div className="border-t flex-col flex gap-4 border-gray-200 p-4">
             <p className="text-xs text-gray-500 mb-2">More</p>
             <Link href="#" onClick={() => setIsMobileOpen(false)}>
               Blog
