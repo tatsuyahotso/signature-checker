@@ -9,25 +9,25 @@ const Footer = () => {
       <div className="flex px-4  lg:px-0 flex-col md:flex-row justify-between gap-8">
         <div>
           <h4 className="font-semibold mb-3 md:mb-4 text-lg">Company</h4>
-          <ul className="space-y-1">
+          <ul className="space-y-1 flex flex-col ">
             <Link href="https://revoke.cash/about">About Us</Link>
             <Link href="https://github.com/RevokeCash/brand-assets">
               Brand Assets
             </Link>
-            <li>Contact Us</li>
-            <li>Careers</li>
-            <li>Terms & Privacy</li>
-            <li>Bug Bounty</li>
+            <Link href="">Contact Us</Link>
+            <Link href="">Careers</Link>
+            <Link href="">Terms & Privacy</Link>
+            <Link href="">Bug Bounty</Link>
           </ul>
         </div>
 
         <div>
           <h4 className="font-semibold mb-3 md:mb-4 text-lg">Community</h4>
-          <ul className="space-y-1">
-            <li>API Documentation</li>
+          <ul className="space-y-1 flex flex-col">
+            <Link href="">API Documentation</Link>
             <Link href="https://revoke.cash/learn">Knowledge Base</Link>
-            <li>Network Status</li>
-            <li>Newsletters</li>
+            <Link href="">Network Status</Link>
+            <Link href="">Newsletters</Link>
           </ul>
         </div>
 
@@ -35,13 +35,13 @@ const Footer = () => {
           <h4 className="font-semibold mb-3 md:mb-4 text-lg">
             Products & Services
           </h4>
-          <ul className="space-y-1">
-            <li>Advertise</li>
-            <li>Explorer-as-a-Service</li>
-            <li>API Plans</li>
-            <li>Priority Support</li>
-            <li>Blockscan</li>
-            <li>Blockscan Chat</li>
+          <ul className="space-y-1 flex flex-col">
+            <Link href="">Advertise</Link>
+            <Link href="">Explorer-as-a-Service</Link>
+            <Link href="">API Plans</Link>
+            <Link href="">Priority Support</Link>
+            <Link href="">Blockscan</Link>
+            <Link href="">Blockscan Chat</Link>
           </ul>
         </div>
       </div>
