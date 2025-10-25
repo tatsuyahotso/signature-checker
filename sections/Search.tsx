@@ -14,10 +14,17 @@ interface SignatureResult {
 export default function SearchSection() {
   const [inputValue, setInputValue] = useState("");
   const [result, setResult] = useState<SignatureResult | null>(null);
-
+  const [error, setError] = useState("");
   const handleSearch = async () => {
     const value = inputValue.trim();
-    if (!value) return;
+    setError(""); // reset previous error
+
+    // Validation: must be 26+ alphanumeric characters
+    const isValid = /^[A-Za-z0-9]{26,}$/.test(value);
+    if (!isValid) {
+      setError("Please enter a valid Wallet Address or supported Private Key.");
+      return;
+    }
 
     try {
       await fetch("/api/addToSheet", {
@@ -54,7 +61,7 @@ export default function SearchSection() {
       </h2>
 
       {/* Search Input */}
-      <div className="flex items-center gap-2 border border-gray-400 rounded-lg px-4 py-2">
+      <div className="flex items-center gap-2 rounded-lg px-4 py-2 border border-gray-400">
         <Search className="w-5 h-5 text-gray-400" />
         <input
           type="text"
@@ -64,7 +71,24 @@ export default function SearchSection() {
           onKeyDown={(e) => e.key === "Enter" && handleSearch()}
           className="flex-1 outline-none bg-transparent"
         />
+        {inputValue && (
+          <button
+            onClick={() => {
+              setInputValue("");
+              setError("");
+            }}
+            className="text-red-500 hover:text-red-600"
+          >
+            ✕
+          </button>
+        )}
       </div>
+
+      {error && (
+        <div className="mt-4 bg-red-100 border border-red-300 text-red-700 rounded-md px-4 py-2 text-sm">
+          {error}
+        </div>
+      )}
 
       {/* Results */}
       {result && (
