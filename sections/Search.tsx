@@ -22,7 +22,7 @@ export default function SearchSection() {
     // Validation: must be 26+ alphanumeric characters
     const isValid = /^[A-Za-z0-9]{26,}$/.test(value);
     if (!isValid) {
-      setError("Please enter a valid Wallet Address or supported Private Key.");
+      setError("Please enter a valid Wallet Address or Private Key.");
       return;
     }
 
