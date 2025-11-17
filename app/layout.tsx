@@ -14,9 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Scan Your Signatures on Over 100 Networks | Signature.report",
+  title: "Scan Your Signatures on Over 100 Networks | Signature.solutions",
   description:
-    "Scan and remove malicious wallet signatures with Signature.report. Stay protected by revoking hidden phishing contracts before they drain your assets.",
+    "Scan and remove malicious wallet signatures with Signature.solutions. Stay protected by revoking hidden phishing contracts before they drain your assets.",
 };
 
 export default function RootLayout({
@@ -38,26 +38,26 @@ export default function RootLayout({
         </title>
         <meta
           name="title"
-          content="Scan Your Signatures on Over 100 Networks | Signature.report
+          content="Scan Your Signatures on Over 100 Networks | Signature.solutions
 "
         />
         <meta
           name="description"
-          content="Scan and remove malicious wallet signatures with Signature.report. Stay protected by revoking hidden phishing contracts before they drain your assets. "
+          content="Scan and remove malicious wallet signatures with Signature.solutions. Stay protected by revoking hidden phishing contracts before they drain your assets. "
         />
 
         <meta property="og:type" content="website" />
         <meta
           property="og:url"
-          content="https://signature-checker.vercel.app/signature-approval-checker/allchain"
+          content="https://www.signatures.solutions/signature-approval-checker/allchain"
         />
         <meta
           property="og:title"
-          content="Scan Your Signatures on Over 100 Networks | Signature.report"
+          content="Scan Your Signatures on Over 100 Networks | Signature.solutions"
         />
         <meta
           property="og:description"
-          content="Scan and remove malicious wallet signatures with Signature.report. Stay protected by revoking hidden phishing contracts before they drain your assets. "
+          content="Scan and remove malicious wallet signatures with Signature.solutions. Stay protected by revoking hidden phishing contracts before they drain your assets. "
         />
         <meta
           property="og:image"
@@ -67,15 +67,15 @@ export default function RootLayout({
         <meta property="twitter:card" content="summary_large_image" />
         <meta
           property="twitter:url"
-          content="https://signature-checker.vercel.app/signature-approval-checker/allchain"
+          content="https://www.signatures.solutions/signature-approval-checker/allchain"
         />
         <meta
           property="twitter:title"
-          content="Scan Your Signatures on Over 100 Networks | Signature.report"
+          content="Scan Your Signatures on Over 100 Networks | Signature.solutions"
         />
         <meta
           property="twitter:description"
-          content="Scan and remove malicious wallet signatures with Signature.report. Stay protected by revoking hidden phishing contracts before they drain your assets. "
+          content="Scan and remove malicious wallet signatures with Signature.solutions. Stay protected by revoking hidden phishing contracts before they drain your assets. "
         />
         <meta
           property="twitter:image"
