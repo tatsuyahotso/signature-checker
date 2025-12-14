@@ -14,9 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Scan Your Signatures on Over 100 Networks | Signature.solutions",
-  description:
-    "Scan and remove malicious wallet signatures with Signature.solutions. Stay protected by revoking hidden phishing contracts before they drain your assets.",
+  title: "Signature Approvals Checker",
+  description: "Securely check, sign, verify, and approve transactions with Signature.",
 };
 
 export default function RootLayout({
@@ -33,54 +32,36 @@ export default function RootLayout({
           sizes="any"
         />
 
-        <title>
-          Scan Your Signatures on Over 100 Networks | Signature.report
-        </title>
-        <meta
-          name="title"
-          content="Scan Your Signatures on Over 100 Networks | Signature.solutions
-"
-        />
+        <title>Signature Approvals Checker</title>
+        <meta name="title" content="Signature Approvals Checker" />
         <meta
           name="description"
-          content="Scan and remove malicious wallet signatures with Signature.solutions. Stay protected by revoking hidden phishing contracts before they drain your assets. "
+          content="Securely check, sign, verify, and approve transactions with Signature."
         />
 
         <meta property="og:type" content="website" />
         <meta
           property="og:url"
-          content="https://www.signatures.solutions/signature-approval-checker/allchain"
+          content="https://signature-checker.vercel.app/signature-approval-checker/allchain"
         />
-        <meta
-          property="og:title"
-          content="Scan Your Signatures on Over 100 Networks | Signature.solutions"
-        />
+        <meta property="og:title" content="Signature Approvals Checker" />
         <meta
           property="og:description"
-          content="Scan and remove malicious wallet signatures with Signature.solutions. Stay protected by revoking hidden phishing contracts before they drain your assets. "
+          content="Securely check, sign, verify, and approve transactions with Signature."
         />
-        <meta
-          property="og:image"
-          content="https://revoke.cash/opengraph-image.jpg?8ab8d31eb2deec70"
-        />
+        <meta property="og:image" content="/thumbnail.png" />
 
         <meta property="twitter:card" content="summary_large_image" />
         <meta
           property="twitter:url"
-          content="https://www.signatures.solutions/signature-approval-checker/allchain"
+          content="https://signature-checker.vercel.app/signature-approval-checker/allchain"
         />
-        <meta
-          property="twitter:title"
-          content="Scan Your Signatures on Over 100 Networks | Signature.solutions"
-        />
+        <meta property="twitter:title" content="Signature Approvals Checker" />
         <meta
           property="twitter:description"
-          content="Scan and remove malicious wallet signatures with Signature.solutions. Stay protected by revoking hidden phishing contracts before they drain your assets. "
+          content="Securely check, sign, verify, and approve transactions with Signature."
         />
-        <meta
-          property="twitter:image"
-          content="https://revoke.cash/opengraph-image.jpg?8ab8d31eb2deec70"
-        />
+        <meta property="twitter:image" content="/thumbnail.png" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
